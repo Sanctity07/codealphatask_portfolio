@@ -52,7 +52,7 @@ section {
     font-weight: 700;
     cursor: default;
 }
-``
+
 .navbar {
     display: none; /* Hidden by default for smaller screens */
     flex-direction: column;
@@ -503,6 +503,7 @@ h3 {
         background-color: transparent;
         padding: 0;
         box-shadow: none;
+        margin: auto;
     }
 
     .navbar a {
