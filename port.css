@@ -8,7 +8,7 @@
     border: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 :root {
@@ -52,29 +52,43 @@ section {
     font-weight: 700;
     cursor: default;
 }
-
+``
 .navbar {
-    margin-right: 25rem;
+    display: none; /* Hidden by default for smaller screens */
+    flex-direction: column;
+    position: absolute;
+    top: 7rem;
+    right: 9%;
+    background-color: var(--snd-bg-color);
+    border: 0.2rem solid var(--main-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    z-index: 99;
+}
+
+.navbar.active {
+    display: flex; /* Show navbar when the active class is added */
 }
 
 .navbar a {
     font-size: 1.5rem;
     color: var(--text-color);
-    margin-right: 7rem;
+    margin: 1rem 0;
     font-weight: 700;
-    display: inline-flex;
-    justify-content: space-between;
+    text-align: center;
 }
 
 .navbar a:hover,
-.navbar a:active{
+.navbar a:active {
     color: var(--main-color);
 }
 
 #menu-icon {
     font-size: 3.6rem;
     color: var(--text-color);
-    display: none;
+    display: none; /* Hidden on larger screens */
+    cursor: pointer;
 }
 
 .home {
@@ -112,16 +126,15 @@ section {
 }
 
 .home-content p {
-    font-size: 1.6rem;
-    line-height: 25px;
     font-size: 2rem;
+    line-height: 2.5rem;
 }
 
-span{
+span {
     color: var(--main-color);
 }
 
-h3{
+h3 {
     font-size: 2rem;
 }
 
@@ -132,12 +145,12 @@ h3{
     width: 4rem;
     height: 4rem;
     background: transparent;
-    border: .2rem solid var(--main-color);
+    border: 0.2rem solid var(--main-color);
     border-radius: 50%;
     font-size: 2rem;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
-    transition: .5s ease;
+    transition: 0.5s ease;
 }
 
 .social-media a:hover {
@@ -154,9 +167,9 @@ h3{
     box-shadow: 0 0 1rem var(--main-color);
     font-size: 1.6rem;
     color: var(--bg-color);
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     font-weight: 600;
-    transition: .5s ease;
+    transition: 0.5s ease;
 }
 
 .btn:hover {
@@ -387,34 +400,6 @@ h3{
 }
 
 @media (max-width: 1024px) {
-    .navbar {
-        display: none;
-        flex-direction: column;
-        margin-left: 50px;
-        background-color: none;
-        border: #252fed 2px solid;
-        padding: 10px;
-        border-radius: 15%;
-    }
-
-    .navbar a {
-        margin: 1rem 0;
-    }
-
-    #menu-icon {
-        display: block;
-        padding: 1rem;
-        margin-left: auto;
-    }
-
-    .home {
-        flex-direction: column;
-    }
-
-    .home-img img {
-        width: 70vw;
-        margin-top: 4rem;
-    }
 
     .about-img img {
         width: 80vw;
@@ -444,13 +429,6 @@ h3{
 }
 
 @media (max-width: 768px) {
-    .home-content h1 {
-        font-size: 4rem;
-    }
-
-    .home-content p {
-        font-size: 1.4rem;
-    }
 
     .services-container .services-box {
         flex: 1 1 100%;
@@ -458,6 +436,44 @@ h3{
 
     .portfolio-container {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .about-content h2 {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .navbar {
+        display: none; /* Hidden initially */
+    }
+
+    #menu-icon {
+        display: block; /* Shown on smaller screens */
+    }
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home-content p {
+        font-size: 1.4rem;
     }
 }
 
@@ -470,14 +486,6 @@ h3{
         font-size: 1.2rem;
     }
 
-    .about-content h2 {
-        font-size: 2.2rem;
-    }
-
-    .about-content p {
-        font-size: 1.4rem;
-    }
-
     .services-box i {
         font-size: 5rem;
     }
@@ -486,3 +494,24 @@ h3{
         font-size: 2rem;
     }
 }
+
+@media (min-width: 1024px) {
+    .navbar {
+        display: flex; /* Ensure the navbar is visible on larger screens */
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .navbar a {
+        margin: 0 2.5rem;/* Adjust spacing between links */
+        margin-right: 20px;
+    }
+
+    #menu-icon {
+        display: none; /* Hide the menu icon on larger screens */
+    }
+}
+
